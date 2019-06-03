@@ -9,16 +9,31 @@ for (index = 0; index < inputs.length; ++index) {
         
         var input_id = inputs[index].id;
 
-        // TODO: Show a clickable icon/text which toggles password visibility. By default, no need to show the password
         // show a small warning below the field
         inputNode = document.getElementById(input_id)
         var spanTag = document.createElement("span");
-        spanTag.innerHTML = "Warning: your password is visible!".italics();
+        spanTag.innerHTML = "Click to toggle password visibility".italics();
         spanTag.style.fontSize = "1em";
-        spanTag.style.color = "red";
+        spanTag.style.color = "blue";
+        // spanTag.style.textDecoration = "underline";
+        spanTag.style.cursor = "pointer";
+        spanTag.onclick = function() {
+            if (document.getElementById(input_id).type === "password") {
+                // convert its type to "text"
+                document.getElementById(input_id).type = "text";
+            } else {
+                // convert its type to "password"
+                document.getElementById(input_id).type = "password";
+            }
+
+        };
+
+        spanTag.onmouseover = function() {
+            spanTag.style.textDecoration = "underline";
+        };
+        spanTag.onmouseleave = function() {
+            spanTag.style.textDecoration = "none";
+        };
         inputNode.parentNode.insertBefore(spanTag, inputNode.nextSibling);
-        
-        // convert its type to "text"
-        document.getElementById(input_id).type = "text";
     }
 }
