@@ -1,1 +1,1 @@
-A test project to learn how to create Firefox addons
+A Firefox addon to show passwords as text
