@@ -9,6 +9,7 @@ for (index = 0; index < inputs.length; ++index) {
         
         var input_id = inputs[index].id;
 
+        // TODO: Show a clickable icon/text which toggles password visibility. By default, no need to show the password
         // show a small warning below the field
         inputNode = document.getElementById(input_id)
         var spanTag = document.createElement("span");
